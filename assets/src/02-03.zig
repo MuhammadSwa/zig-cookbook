@@ -15,7 +15,7 @@ pub fn main(init: std.process.Init) !void {
     //Parameters for Argon2id
     const params = std.crypto.pwhash.argon2.Params{
         .t = 3, // Iterations (time cost)
-        .m = 16, // Memory cost in KiB (here 16 MiB)
+        .m = 16, // Memory cost in KiB (here 16 KiB)
         .p = 1, // Threads
     };
 

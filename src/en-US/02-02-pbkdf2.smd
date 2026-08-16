@@ -4,7 +4,6 @@
 .author = "ZigCC",
 .layout = "section.shtml",
 ---
-Salt and hash a password with PBKDF2
 
 Uses [`std.crypto.pwhash.pbkdf2`] to hash a salted password using HMAC-SHA256. In production, the salt should be generated randomly using [`std.Io.randomSecure`].
 

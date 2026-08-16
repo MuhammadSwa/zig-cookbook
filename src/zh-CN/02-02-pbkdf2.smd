@@ -4,7 +4,6 @@
 .author = "ZigCC",
 .layout = "section.shtml",
 ---
-使用 PBKDF2 对密码进行加盐和哈希
 
 使用 [`std.crypto.pwhash.pbkdf2`] 通过 HMAC-SHA256 对加盐后的密码进行哈希处理。在生产环境中，盐值应使用 [`std.Io.randomSecure`] 随机生成。
 

@@ -4,7 +4,6 @@
 .author = "ZigCC",
 .layout = "section.shtml",
 ---
-Calculate SHA-256 digest of a file
 
 There are many crypto algorithm implementations in std, `sha256`, `md5` are supported out of box.
 

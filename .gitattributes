@@ -1,2 +1,3 @@
 # https://github.com/github-linguist/linguist/blob/master/docs/overrides.md#documentation
 examples/* -linguist-documentation
+tests/zig-zen.txt text eol=lf

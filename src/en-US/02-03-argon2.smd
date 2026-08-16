@@ -4,9 +4,8 @@
 .author = "ZigCC",
 .layout = "section.shtml",
 ---
-Salt and hash a password with Argon2
 
-This Zig program derives a cryptographic key from a password and salt using the Argon2id password hashing algorithm. It uses [std.crypto.pwhash.argon2] to hash a salted password, where the salt is generated using [`std.Io.randomSecure`].
+This Zig program derives a cryptographic key from a password and salt using the Argon2id password hashing algorithm. It uses [`std.crypto.pwhash.argon2`] to hash a salted password, where the salt is generated using [`std.Io.randomSecure`].
 
 []($code.siteAsset('src/02-03.zig').language('zig'))
 
