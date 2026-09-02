@@ -1,0 +1,31 @@
+---
+.title = "Command line arguments",
+.date = "2026-09-02",
+.author = "muhammadSwa",
+.layout = "section.shtml",
+---
+
+Command line arguments live in init.minimal.args, which exposes three views over argv. Pick whichever fits how you consume the arguments.
+
+## 1. Read arguments as a slice
+
+[`std.process.Args.toSlice`] copies all arguments into memory you own: `args[0]` is the program name, `args[1..]` are the user arguments. Use this when you need random access or want to keep the arguments around.
+
+[]($code.siteAsset('src/13-02-01.zig').language('zig'))
+
+## 2. Iterate arguments lazily
+
+Read arguments one at a time with [`std.process.Args.iterate`]. Each `next()` yields a `[]const u8` or `null` at the end; call `skip()` to drop the program name and `deinit()` when done.
+
+[]($code.siteAsset('src/13-02-02.zig').language('zig'))
+
+## 3. Access the raw argument vector
+
+Get the raw vector with [`std.process.Args.vector`]; the same `char **argv` a C program sees. On POSIX-like targets entries are null-terminated `[*:0]const u8` pointers; no allocation or copying is involved — convert each entry with [`std.mem.span`] (on Windows the vector is WTF-16 and on WASI without libc it is `void`; use `iterate` for portable code).
+
+[]($code.siteAsset('src/13-02-03.zig').language('zig'))
+
+[`std.process.Args.toSlice`]: https://ziglang.org/documentation/0.16.0/std/#std.process.Args.toSlice
+[`std.process.Args.vector`]: https://ziglang.org/documentation/0.16.0/std/#std.process.Args.Vector
+[`std.process.Args.iterate`]: https://ziglang.org/documentation/0.16.0/std/#std.process.Args.iterate
+[`std.mem.span`]: https://ziglang.org/documentation/0.16.0/std/#std.mem.span
