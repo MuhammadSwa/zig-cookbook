@@ -5,8 +5,7 @@
 .layout = "section.shtml",
 ---
 
-Read arguments lazily, one at a time, with `std.process.Args.iterate`. Each call to `next()` yields an argument as a `[]const u8`, or `null` at the end; the first item is the program name, so skip it if you don't need it. Call `deinit()` on the iterator when done.
-
+Read arguments lazily with [`std.process.Args.iterate`]. As with `13-02`/`13-03`, this uses [`std.process.Init`] and `init.minimal.args`. Each `next()` yields a `[]const u8` or `null` at the end; call `skip()` to drop the program name and `deinit()` when done.
 
 []($code.siteAsset('src/13-04.zig').language('zig'))
 
