@@ -5,7 +5,7 @@
 .layout = "section.shtml",
 ---
 
-Command line arguments live in init.minimal.args, which exposes three views over argv. Pick whichever fits how you consume the arguments.
+Command line arguments live in `init.minimal.args`, which exposes three views over `argv`. Pick whichever fits how you consume the arguments.
 
 ## 1. Read arguments as a slice
 
