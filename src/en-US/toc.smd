@@ -76,6 +76,9 @@
 - Command line
 
   - [Argument Parsing](13-01-argparse)
+  - [Read arguments as a slice](13-02-args-slice)
+  - [Access the raw argument vector](13-03-args-vector)
+  - [Iterate arguments](13-04-args-iterator)
   - ANSI Terminal
 
 - [Database](database)

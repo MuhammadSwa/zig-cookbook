@@ -1,0 +1,16 @@
+---
+.title = "Read arguments as a slice",
+.date = "2026-09-02",
+.author = "muhammadSwa",
+.layout = "section.shtml",
+---
+
+Collect every command line argument at once with [`std.process.Args.toSlice`]. It copies all arguments into a single allocation that you own: `args[0]` is the program name and `args[1..]` are the user arguments. Free the result with `init.gpa.free(args)` when done.
+
+Reach for this when you need random access to the arguments or want to store them.
+
+
+[]($code.siteAsset('src/13-02.zig').language('zig'))
+
+[`std.process.Args.toSlice`]: https://ziglang.org/documentation/0.16.0/std/#std.process.Args.toSlice
+[`std.process.Init`]: https://ziglang.org/documentation/0.16.0/std/#std.process.Init

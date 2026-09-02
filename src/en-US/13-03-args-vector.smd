@@ -1,0 +1,15 @@
+---
+.title = "Access the raw argument vector",
+.date = "2026-09-02",
+.author = "muhammadSwa",
+.layout = "section.shtml",
+---
+
+Get the raw argument vector exactly as the OS passed it with [`std.process.Args.vector`]; the same char `**argv` a C program sees. Entries are null-terminated `[*:0]const u8` pointers; no allocation or copying is involved. Convert each entry to a `[]const u8` with [`std.mem.span`].
+
+Use this when you want zero overhead or C interoperability.
+
+[]($code.siteAsset('src/13-03.zig').language('zig'))
+
+[`std.process.Args.vector`]: https://ziglang.org/documentation/0.16.0/std/#std.process.Args.vector
+[`std.process.Init`]: https://ziglang.org/documentation/0.16.0/std/#std.process.Init

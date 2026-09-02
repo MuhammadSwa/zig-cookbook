@@ -1,0 +1,14 @@
+---
+.title = "Iterate arguments",
+.date = "2026-09-02",
+.author = "muhammadSwa",
+.layout = "section.shtml",
+---
+
+Read arguments lazily, one at a time, with `std.process.Args.iterate`. Each call to `next()` yields an argument as a `[]const u8`, or `null` at the end; the first item is the program name, so skip it if you don't need it. Call `deinit()` on the iterator when done.
+
+
+[]($code.siteAsset('src/13-04.zig').language('zig'))
+
+[`std.process.Args.iterate`]: https://ziglang.org/documentation/0.16.0/std/#std.process.Args.iterate
+[`std.process.Init`]: https://ziglang.org/documentation/0.16.0/std/#std.process.Init
